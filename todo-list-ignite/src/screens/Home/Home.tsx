@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { useState } from 'react';
 import { Alert, FlatList, View } from 'react-native';
 
@@ -27,13 +28,12 @@ export function Home() {
   }
 
   function handleRemoveTask(id: number) {
-    if (setCountCreatedTasks.length === 1) {
-      setCountFinishedTasks(0);
-    } else {
-      setCountFinishedTasks(countFinishedTasks - 1);
-    }
     setTasks(tasks.filter((task) => task.id !== id));
     setCountCreatedTasks(countCreatedTasks - 1);
+
+    countFinishedTasks <= 1
+      ? setCountFinishedTasks(0)
+      : setCountFinishedTasks(countFinishedTasks - 1);
   }
 
   function alertUser(id: number) {
