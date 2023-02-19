@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { PlusCircle } from 'phosphor-react-native';
-import { TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { styles } from './styles';
 
@@ -36,7 +36,8 @@ export function Input({
           onPress={() => {
             text.length >= 1
               ? (addCountCreatedTasks(createdTasks + 1), handleAddNewTask(text))
-              : addCountCreatedTasks(createdTasks);
+              : (Alert.alert('Atenção', 'Insira um texto válido para criar sua tarefa'),
+                addCountCreatedTasks(createdTasks));
           }}>
           <PlusCircle size={20} color="#fff" weight="bold" />
         </TouchableOpacity>
