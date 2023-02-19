@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { PlusCircle } from 'phosphor-react-native';
 import { TextInput, TouchableOpacity, View } from 'react-native';
 
@@ -27,13 +28,15 @@ export function Input({
           placeholderTextColor="#808080"
           keyboardAppearance="dark"
           value={text}
+          autoCapitalize="words"
           onChangeText={(e) => setText(e)}
         />
         <TouchableOpacity
           style={styles.addButton}
           onPress={() => {
-            handleAddNewTask(text);
-            addCountCreatedTasks(createdTasks + 1);
+            text.length >= 1
+              ? (addCountCreatedTasks(createdTasks + 1), handleAddNewTask(text))
+              : addCountCreatedTasks(createdTasks);
           }}>
           <PlusCircle size={20} color="#fff" weight="bold" />
         </TouchableOpacity>
