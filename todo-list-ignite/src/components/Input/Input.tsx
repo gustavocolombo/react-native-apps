@@ -1,24 +1,25 @@
 /* eslint-disable no-unused-expressions */
 import { PlusCircle } from 'phosphor-react-native';
+import { useContext } from 'react';
 import { Alert, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { styles } from './styles';
+import { TaskContext } from '../../context/TaskContext';
 
-interface InputProps {
-  text: string;
-  createdTasks: number;
-  setText: (e: string) => void;
-  handleAddNewTask: (text: string) => void;
-  addCountCreatedTasks: (count: number) => void;
-}
+export function Input() {
+  const { text, countCreatedTasks, setCountCreatedTasks, setText, setTasks, tasks } =
+    useContext(TaskContext);
 
-export function Input({
-  text,
-  setText,
-  handleAddNewTask,
-  addCountCreatedTasks,
-  createdTasks,
-}: InputProps) {
+  function handleAddNewTask(text: string) {
+    const newTask = {
+      id: Math.floor(Math.random() * 10000),
+      text,
+    };
+
+    setTasks([...tasks, newTask]);
+    setText('');
+  }
+
   return (
     <View style={styles.containerInput}>
       <View style={styles.contentWrapper}>
@@ -35,9 +36,8 @@ export function Input({
           style={styles.addButton}
           onPress={() => {
             text.length >= 1
-              ? (addCountCreatedTasks(createdTasks + 1), handleAddNewTask(text))
-              : (Alert.alert('Atenção', 'Insira um texto válido para criar sua tarefa'),
-                addCountCreatedTasks(createdTasks));
+              ? (setCountCreatedTasks(countCreatedTasks + 1), handleAddNewTask(text))
+              : Alert.alert('Atenção', 'Insira um texto válido para criar sua tarefa');
           }}>
           <PlusCircle size={20} color="#fff" weight="bold" />
         </TouchableOpacity>

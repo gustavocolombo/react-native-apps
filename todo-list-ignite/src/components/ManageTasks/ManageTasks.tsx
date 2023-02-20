@@ -1,13 +1,12 @@
+import { useContext } from 'react';
 import { Text, View } from 'react-native';
 
 import { styles } from './styles';
+import { TaskContext } from '../../context/TaskContext';
 
-interface ManageTasksProps {
-  countCreatedTasks: number;
-  countFinishedTasks: number;
-}
+export function ManageTasks() {
+  const { countCreatedTasks, countFinishedTasks } = useContext(TaskContext);
 
-export function ManageTasks({ countCreatedTasks, countFinishedTasks }: ManageTasksProps) {
   return (
     <View style={styles.containerManageTask}>
       <View style={styles.containerTasks}>
