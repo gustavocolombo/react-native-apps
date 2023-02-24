@@ -5,6 +5,7 @@ import { SafeAreaView, StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import { Loading } from './src/components/Loading';
+import { Routes } from './src/routes';
 import { NewGroup } from './src/screens/NewGroup';
 import { Teams } from './src/screens/Teams';
 
@@ -14,7 +15,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" networkActivityIndicatorVisible />
-      {fontsLoaded ? <Groups /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }

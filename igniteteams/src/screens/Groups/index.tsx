@@ -1,5 +1,6 @@
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { FlatList } from 'react-native';
 
@@ -10,6 +11,12 @@ import { GroupCard } from '../../components/GroupCard';
 
 export function Groups() {
   const [groups, setGroups] = useState([]);
+
+  const navigation = useNavigation();
+
+  function handleMoveNewGroup() {
+    navigation.navigate('newGroup');
+  }
 
   return (
     <Container>
@@ -22,7 +29,7 @@ export function Groups() {
         ListEmptyComponent={() => <EmptyList message="Ainda não há turmas cadastradas" />}
         renderItem={({ item }) => <GroupCard text={item} />}
       />
-      <Button buttonText="Criar turma" />
+      <Button buttonText="Criar turma" onPress={handleMoveNewGroup} />
     </Container>
   );
 }
