@@ -118,7 +118,7 @@ export function Teams() {
       <Highlight title={group} subtitle="adicione a galera e separe os times" />
       <Form>
         <Input
-          textPlaceholder="Nome da turma"
+          textPlaceholder="Nome do jogador"
           onChangeText={(e) => setPlayerName(e)}
           value={playerName}
         />
