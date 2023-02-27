@@ -1,14 +1,14 @@
+import { Button } from '@components/Button';
+import { EmptyList } from '@components/EmptyList';
+import { GroupCard } from '@components/GroupCard';
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { getAllGroupsStorage } from '@storage/groups/getAllGroupsStorage';
 import { useCallback, useState } from 'react';
 import { FlatList } from 'react-native';
 
 import { Container } from './styles';
-import { Button } from '../../components/Button';
-import { EmptyList } from '../../components/EmptyList';
-import { GroupCard } from '../../components/GroupCard';
-import { getAllGroupsStorage } from '../../storage/groups/getAllGroupsStorage';
 
 export function Groups() {
   const [groups, setGroups] = useState<string[]>([]);

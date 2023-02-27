@@ -1,14 +1,14 @@
 import { Button } from '@components/Button';
 import { Header } from '@components/Header';
+import { Highlight } from '@components/Highlight';
+import { Input } from '@components/Input';
 import { useNavigation } from '@react-navigation/native';
+import { createGroupStorage } from '@storage/groups/createGroupStorage';
+import { AppError } from '@utils/AppError';
 import { useState } from 'react';
 import { Alert } from 'react-native';
 
 import { Container, Content, UsersThreeStyle } from './styles';
-import { Highlight } from '../../components/Highlight';
-import { Input } from '../../components/Input';
-import { createGroupStorage } from '../../storage/groups/createGroupStorage';
-import { AppError } from '../../utils/AppError';
 
 export function NewGroup() {
   const [group, setGroup] = useState('');

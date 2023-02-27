@@ -1,22 +1,22 @@
+import { Button } from '@components/Button';
+import { ButtonIcon } from '@components/ButtonIcon';
+import { EmptyList } from '@components/EmptyList';
+import { Filter } from '@components/Filter';
+import { Header } from '@components/Header';
+import { Highlight } from '@components/Highlight';
+import { Input } from '@components/Input';
+import { PlayerCard } from '@components/PlayerCard';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { removeGroupByName } from '@storage/groups/removeGroupByName';
+import { PlayerStorageDTO } from '@storage/players/PlayerStorageDTO';
+import { createPlayerStorage } from '@storage/players/createPlayerStorage';
+import { getPlayersByGroupAndTeam } from '@storage/players/getPlayersByGroupAndTeam';
+import { removePlayerByGroup } from '@storage/players/removePlayerByGroup';
+import { AppError } from '@utils/AppError';
 import { useEffect, useState } from 'react';
 import { Alert, FlatList } from 'react-native';
 
 import { Container, CountPlayers, Form, HeaderList } from './styles';
-import { Button } from '../../components/Button';
-import { ButtonIcon } from '../../components/ButtonIcon';
-import { EmptyList } from '../../components/EmptyList';
-import { Filter } from '../../components/Filter';
-import { Header } from '../../components/Header';
-import { Highlight } from '../../components/Highlight';
-import { Input } from '../../components/Input';
-import { PlayerCard } from '../../components/PlayerCard';
-import { removeGroupByName } from '../../storage/groups/removeGroupByName';
-import { PlayerStorageDTO } from '../../storage/players/PlayerStorageDTO';
-import { createPlayerStorage } from '../../storage/players/createPlayerStorage';
-import { getPlayersByGroupAndTeam } from '../../storage/players/getPlayersByGroupAndTeam';
-import { removePlayerByGroup } from '../../storage/players/removePlayerByGroup';
-import { AppError } from '../../utils/AppError';
 
 type RouteParams = {
   group: string;
