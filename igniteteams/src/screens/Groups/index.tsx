@@ -1,7 +1,7 @@
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
-import { useNavigation } from '@react-navigation/native';
-import { useEffect, useState } from 'react';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useCallback, useState } from 'react';
 import { FlatList } from 'react-native';
 
 import { Container } from './styles';
@@ -28,9 +28,15 @@ export function Groups() {
     }
   }
 
-  useEffect(() => {
-    fetchGroups();
-  }, [groups]);
+  function handleOpenGroup(groupName: string) {
+    navigation.navigate('teams', { group: groupName });
+  }
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchGroups();
+    }, [])
+  );
 
   return (
     <Container>
@@ -41,7 +47,7 @@ export function Groups() {
         keyExtractor={(item) => item}
         contentContainerStyle={groups.length === 0 && { flex: 1 }}
         ListEmptyComponent={() => <EmptyList message="Ainda não há turmas cadastradas" />}
-        renderItem={({ item }) => <GroupCard text={item} />}
+        renderItem={({ item }) => <GroupCard text={item} onPress={() => handleOpenGroup(item)} />}
       />
       <Button buttonText="Criar turma" onPress={handleMoveNewGroup} />
     </Container>
