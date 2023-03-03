@@ -12,7 +12,6 @@ import {
   ContainerDateTime,
   ContainerGray,
   ContainerInsideDiet,
-  ContainerWhite,
   ContentDateTime,
   DescriptionTextArea,
   InputDate,
@@ -22,8 +21,9 @@ import {
   TextForm,
   TextHeaderButton,
 } from "./styles";
+import { ContainerWhite } from "../NewMeal/styles";
 
-export function NewMeal() {
+export function EditMeal() {
   const [buttonOptionYesIsPressed, setButtonOptionYesIsPressed] =
     useState(false);
   const [buttonOptionNoIsPressed, setButtonOptionNoIsPressed] = useState(false);
@@ -32,7 +32,7 @@ export function NewMeal() {
   return (
     <Container>
       <ContainerGray>
-        <HeaderBackButton showHeaderText="Nova refeição" />
+        <HeaderBackButton showHeaderText="Editar refeição" />
       </ContainerGray>
 
       <ContainerWhite>
@@ -93,10 +93,7 @@ export function NewMeal() {
           </ContainerButtonsDiet>
         </ContainerInsideDiet>
 
-        <ButtonMI
-          textButton="Cadastrar refeição"
-          style={{ marginBottom: 20 }}
-        />
+        <ButtonMI textButton="Salvar alterações" style={{ marginBottom: 20 }} />
       </ContainerWhite>
     </Container>
   );

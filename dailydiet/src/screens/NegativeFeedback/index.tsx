@@ -1,5 +1,5 @@
 import sad_person from "@assets/sad_person.png";
-import { Button } from "@components/Button";
+import { ButtonMI } from "@components/ButtonMI";
 import { Highlight } from "@components/Highlight";
 
 import { Container, Image } from "./styles";
@@ -13,7 +13,10 @@ export function NegativeFeedback() {
         type="negative"
       />
       <Image source={sad_person} />
-      <Button textButton="Ir para a página inicial" style={{ width: "50%" }} />
+      <ButtonMI
+        textButton="Ir para a página inicial"
+        style={{ width: "50%" }}
+      />
     </Container>
   );
 }

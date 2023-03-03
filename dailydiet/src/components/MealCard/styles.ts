@@ -58,5 +58,5 @@ export const ViewCircleColor = styled(View)<ViewCircleOptions>`
   border: 9px;
   border-radius: 30px;
   border-color: ${({ theme, healthy }) =>
-    healthy ? theme.COLOR.green_200 : theme.COLOR.red_200};
+    healthy === "yes" ? theme.COLOR.green_200 : theme.COLOR.red_200};
 `;

@@ -3,14 +3,13 @@ import { TouchableOpacityProps } from "react-native";
 import { Container, Icon, TextButton } from "./styles";
 
 type ButtonProps = TouchableOpacityProps & {
-  iconName?: string;
   textButton: string;
 };
 
-export function Button({ iconName, textButton, ...rest }: ButtonProps) {
+export function ButtonDeleteMeal({ textButton, ...rest }: ButtonProps) {
   return (
     <Container {...rest}>
-      {iconName && <Icon name={iconName} />}
+      <Icon />
       <TextButton>{textButton}</TextButton>
     </Container>
   );

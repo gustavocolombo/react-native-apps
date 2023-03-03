@@ -1,4 +1,4 @@
-import { Button } from "@components/Button";
+import { ButtonMI } from "@components/ButtonMI";
 import { EmptyList } from "@components/EmptyList";
 import { Header } from "@components/Header";
 import { MealCard } from "@components/MealCard";
@@ -17,7 +17,7 @@ export function Home() {
       <Statistics color="primary" />
       <NewMealContainer>
         <Text>Refeições</Text>
-        <Button iconName="add" textButton="Nova refeição" />
+        <ButtonMI iconName="add" textButton="Nova refeição" />
       </NewMealContainer>
       <FlatList
         contentContainerStyle={{ flex: 1 }}
